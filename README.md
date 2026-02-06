@@ -95,3 +95,80 @@ The maximum Sharpe portfolio concentrates in higher-return assets (tech, financi
 
 ## Installation & Usage
 ```bash
+# Clone repository
+git clone https://github.com/y-yuchien-c/portfolio-optimization-mpt.git
+cd portfolio-optimization-mpt
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run analysis
+jupyter notebook notebooks/portfolio_analysis.ipynb
+```
+
+## Project Structure
+```
+portfolio-optimization-mpt/
+├── README.md
+├── requirements.txt
+├── src/
+│   └── portfolio_optimizer.py    # Core optimization class
+├── notebooks/
+│   └── portfolio_analysis.ipynb  # Interactive analysis
+├── visualizations/
+│   ├── efficient_frontier.html
+│   └── weight_comparison.html
+└── data/
+    └── portfolio_weights.csv      # Exported allocations
+```
+
+## Technical Implementation
+
+**Key Libraries:**
+- `PyPortfolioOpt`: Implements mean-variance optimization with numerical solvers
+- `yfinance`: Real-time market data integration  
+- `Plotly`: Interactive visualizations for exploratory analysis
+- `NumPy/Pandas`: Numerical computation and data manipulation
+
+**Core Algorithm:**
+The optimizer solves the quadratic programming problem:
+```
+maximize: w^T μ - (λ/2) w^T Σ w
+subject to: Σw_i = 1, w_i ≥ 0
+```
+
+Where:
+- `w` = portfolio weights
+- `μ` = expected returns vector
+- `Σ` = covariance matrix  
+- `λ` = risk aversion parameter
+
+## Future Enhancements
+
+- [ ] Black-Litterman model for incorporating market views
+- [ ] Factor model decomposition (Fama-French, momentum)
+- [ ] Conditional Value-at-Risk (CVaR) optimization
+- [ ] Multi-period rebalancing simulation
+- [ ] Comparison with hierarchical risk parity (HRP)
+- [ ] Monte Carlo scenario analysis for stress testing
+
+## References
+
+- Markowitz, H. (1952). "Portfolio Selection." *Journal of Finance*
+- Ledoit, O. & Wolf, M. (2004). "Honey, I Shrunk the Sample Covariance Matrix"
+- [PyPortfolioOpt Documentation](https://pyportfolioopt.readthedocs.io/)
+- [Investopedia: Modern Portfolio Theory](https://www.investopedia.com/terms/m/modernportfoliotheory.asp)
+
+## Author
+
+**Elaine Yu-Chien Chen**  
+Sophomore, University of Chicago | Computer Science & Economics  
+Interested in quantitative finance, systematic trading, and portfolio construction
+
+---
+
+*This project was developed as part of quantitative finance portfolio building. Feedback and suggestions welcome via GitHub issues.*
