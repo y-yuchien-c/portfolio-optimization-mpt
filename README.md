@@ -165,7 +165,7 @@ Where:
 
 ## Author
 
-**Elaine Yu-Chien Chen**  
+**Elaine Yao**  
 Sophomore, University of Chicago | Computer Science & Economics  
 Interested in quantitative finance, systematic trading, and portfolio construction
 
